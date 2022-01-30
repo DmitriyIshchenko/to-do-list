@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { toggleTaskStatus } from "./todoSlice";
+import { toggleTaskStatus, deleteTask } from "./todoSlice";
 
 export default function SingleTask({ todo, listId }) {
 
@@ -11,8 +11,13 @@ export default function SingleTask({ todo, listId }) {
         dispatch(toggleTaskStatus({ taskId, isDone, listId }))
     }
 
+    const handleDelete = () => {
+        dispatch(deleteTask({ listId, taskId }))
+    }
+
     return <>
         <input type="checkbox" checked={isDone} onChange={handleToggleStatus} />
         {task}
+        <button onClick={handleDelete}>delete</button>
     </>;
 }
