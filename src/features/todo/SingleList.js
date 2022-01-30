@@ -3,13 +3,14 @@ import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { selectListById } from './todoSlice';
 import { Link } from "react-router-dom";
+import SingleTask from './SingleTask';
 
 export default function SingleList() {
 
     const listId = useParams().listId;
     const list = useSelector(state => selectListById(state, listId))
     const { title, todos } = list;
-    const renderedTodos = todos.map(todo => <li key={todo.taskId}>{todo.task}</li>)
+    const renderedTodos = todos.map(todo => <li key={todo.taskId}><SingleTask todo={todo} listId={listId} /></li>)
 
     return <div>
         <Link to="/">all lists</Link>
