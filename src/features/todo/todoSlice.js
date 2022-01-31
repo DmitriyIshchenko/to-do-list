@@ -1,4 +1,4 @@
-import { createSlice, current, nanoid } from '@reduxjs/toolkit';
+import { createSlice, nanoid } from '@reduxjs/toolkit';
 
 const initialState = {
     lists: [
@@ -70,8 +70,7 @@ export const todoSlice = createSlice({
         },
         toggleTaskStatus: (state, action) => {
             const { listId, taskId, isDone } = action.payload;
-            const target = state.lists.find(list => list.listId === listId)
-                .todos.find(todo => todo.taskId === taskId);
+            const target = selectTaskById(state, listId, taskId);
             target.isDone = !isDone;
         },
         deleteTask: (state, action) => {
@@ -84,11 +83,20 @@ export const todoSlice = createSlice({
             let after = state.lists[listIndex].todos.slice(targetIndex + 1);
 
             state.lists[listIndex].todos = [...before, ...after];
+        },
+        editTask: (state, action) => {
+            const { listId, taskId, editedTask } = action.payload;
+            const target = selectTaskById(state, listId, taskId);
+            target.task = editedTask;
         }
     }
 })
 export const selectAllLists = state => state.todo.lists;
 export const selectListById = (state, listId) => state.todo.lists.find(item => item.listId === listId);
+export const selectTaskById = (state, listId, taskId) => {
+    return state.lists.find(list => list.listId === listId)
+        .todos.find(todo => todo.taskId === taskId);
+}
 
-export const { createList, addTask, toggleTaskStatus, deleteTask } = todoSlice.actions;
+export const { createList, addTask, toggleTaskStatus, deleteTask, editTask } = todoSlice.actions;
 export default todoSlice.reducer;
