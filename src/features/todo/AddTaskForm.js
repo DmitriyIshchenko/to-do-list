@@ -19,6 +19,7 @@ export default function AddTaskForm() {
         navigate(`/list/${targetListId}`)
     }
 
+    const canSave = task !== "";
     const renderedRadios = lists.map(list => {
         return <label key={list.listId} htmlFor={list.title}>{list.title}
             <input
@@ -39,7 +40,7 @@ export default function AddTaskForm() {
             <div>
                 {renderedRadios}
             </div>
-            <button onClick={handleAddTask}>add task</button>
+            <button disabled={!canSave} onClick={handleAddTask}>add task</button>
         </form>
     </section>;
 }
