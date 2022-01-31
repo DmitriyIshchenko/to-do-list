@@ -20,7 +20,7 @@ export default function SingleList() {
     return <div>
         <Link to="/">all lists</Link>
         <h2>{title}</h2>
-        <ProgressRing radius={20} strokeWidth={4} strokeColor="black" progress={getProgress(todos)} />
+        <ProgressRing radius={20} strokeWidth={4} strokeColor={list.colorTheme} progress={getProgress(todos)} />
         <h3>{todos.lenght === 1 ? `1 task` : `${todos.length} tasks`}</h3>
         <ul>
             {renderedTodos}

@@ -11,10 +11,11 @@ export default function CreateList() {
     const lists = useSelector(state => selectAllLists(state));
 
     const [title, setTitle] = useState("");
+    const [colorTheme, setColorTheme] = useState("#0000FF");
     const canSave = lists.every(item => item.title !== title) && title;
 
     const handleCreate = () => {
-        const response = dispatch(createList(title));
+        const response = dispatch(createList(title, colorTheme));
         navigate(`/list/${response.payload.listId}`);
     }
 
@@ -22,6 +23,7 @@ export default function CreateList() {
         <h2>Create a list</h2>
         <form>
             <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+            <input type="color" value={colorTheme} onChange={(e) => setColorTheme(e.target.value)} />
             <button type="button" onClick={handleCreate} disabled={!canSave}>create</button>
         </form>
     </section>;

@@ -6,7 +6,7 @@ import { selectAllLists } from './todoSlice';
 export default function Lists() {
 
     const lists = useSelector(state => selectAllLists(state));
-    const renderedLists = lists.map(list => <li key={list.listId}><Link to={`/list/${list.listId}`}>{list.title}</Link></li>)
+    const renderedLists = lists.map(list => <li key={list.listId} style={{ color: list.colorTheme }}><Link to={`/list/${list.listId}`}>{list.title}</Link></li>)
 
     return <div>
         <ul>
