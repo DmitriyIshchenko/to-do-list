@@ -5,6 +5,7 @@ import Lists from './features/todo/Lists';
 import CreateList from './features/todo/CreateListForm';
 import SingleList from './features/todo/SingleList';
 import AddTaskForm from './features/todo/AddTaskForm';
+import EditTaskForm from './features/todo/EditTaskForm';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/create-list" element={<CreateList />} />
         <Route path="/list/:listId" element={<SingleList />} />
         <Route path="/list/:listId/new-task" element={<AddTaskForm />} />
+        <Route path="/list/:listId/:taskId/edit" element={<EditTaskForm />} />
       </Routes>
     </div>
   );

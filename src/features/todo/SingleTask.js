@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { toggleTaskStatus, deleteTask } from "./todoSlice";
+import { Link } from "react-router-dom";
 
 export default function SingleTask({ todo, listId }) {
 
@@ -19,5 +20,6 @@ export default function SingleTask({ todo, listId }) {
         <input type="checkbox" checked={isDone} onChange={handleToggleStatus} />
         {task}
         <button onClick={handleDelete}>delete</button>
+        <Link to={`/list/${listId}/${taskId}/edit`}>edit</Link>
     </>;
 }
