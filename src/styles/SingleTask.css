@@ -1,0 +1,76 @@
+.single-task {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid grey;
+}
+
+.single-task div {
+    display: flex;
+    justify-content: space-evenly;
+    flex: 1;
+}
+
+.single-task-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    height: 70px;
+    padding-left: 50px;
+    flex: 3;
+}
+
+.single-task-label input {
+    display: none;
+}
+
+.checkmark {
+    display: block;
+    position: absolute;
+    top: inherit;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.single-task-label input:checked~.checkmark {
+    border: none;
+}
+
+.single-task-label input:checked~p {
+    color: grey;
+    text-decoration: line-through;
+}
+
+.single-task-label input:checked~.checkmark:after {
+    display: block;
+}
+
+.single-task-label .checkmark:after {
+    left: 9px;
+    top: 4px;
+    width: 5px;
+    height: 12px;
+    border: solid green;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.delete-btn, .edit-btn {
+    font-size: 1.5rem;
+    text-decoration: none;
+    background: transparent;
+    border: none;
+    text-align: center;
+    color: rgb(161, 161, 161);
+}
