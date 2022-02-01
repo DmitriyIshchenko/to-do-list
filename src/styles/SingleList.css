@@ -1,0 +1,65 @@
+.single-list-container {
+    padding: 20px 20px 20px 5px;
+}
+
+.link-back {
+    padding-left: 15px;
+}
+
+.link-back a {
+    font-size: 2rem;
+    text-decoration: none;
+    color: grey;
+}
+
+.list-header {
+    display: flex;
+    margin: 20px 0 20px 0;
+}
+
+.list-header div {
+    margin-left: 20px;
+}
+
+.list-header h1 {
+    text-transform: capitalize;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.list-header h3 {
+    color: grey;
+    font-weight: 500;
+}
+
+.add-task-btn {
+    display: flex;
+    align-items: center;
+    height: 70px;
+    text-decoration: none;
+    color: grey;
+    padding-left: 15px;
+}
+
+.add-task-btn div {
+    width: 25px;
+    height: 25px;
+    background: blue;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.single-list {
+    padding-left: 15px;
+}
+
+.single-list li {
+    list-style: none;
+}

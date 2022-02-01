@@ -5,26 +5,39 @@ import { selectListById } from './todoSlice';
 import { Link } from "react-router-dom";
 import SingleTask from './SingleTask';
 import ProgressRing from './ProgressRing';
+import { getProgress } from './Lists';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const getProgress = (todos) => {
-    const doneAmount = todos.filter(todo => todo.isDone).length;
-    return doneAmount / todos.length * 100 || 0;
-}
+import "../../styles/SingleList.css"
 
 export default function SingleList() {
 
     const listId = useParams().listId;
     const list = useSelector(state => selectListById(state, listId))
     const { title, todos } = list;
-    const renderedTodos = todos.map(todo => <li key={todo.taskId}><SingleTask todo={todo} listId={listId} /></li>)
-    return <div>
-        <Link to="/">all lists</Link>
-        <h2>{title}</h2>
-        <ProgressRing radius={20} strokeWidth={4} strokeColor={list.colorTheme} progress={getProgress(todos)} />
-        <h3>{todos.lenght === 1 ? `1 task` : `${todos.length} tasks`}</h3>
-        <ul>
+
+    const renderedTodos = todos.map(todo => <SingleTask key={todo.taskId} todo={todo} listId={listId} />)
+
+    return <div className='single-list-container'>
+        <div className='link-back'>
+            <Link to="/"><FontAwesomeIcon icon="angle-left" /></Link>
+        </div>
+
+        <header className='list-header'>
+            <ProgressRing radius={25} strokeWidth={3} strokeColor={list.colorTheme} icon={list.icon} progress={getProgress(todos)} />
+            <div>
+                <h1>{title}</h1>
+                <h3>{todos.lenght === 1 ? `1 task` : `${todos.length} tasks`}</h3>
+            </div>
+        </header>
+
+        <ul className='single-list'>
             {renderedTodos}
         </ul>
-        <Link to={`/list/${listId}/new-task`}><button>add new task</button></Link>
+
+        <Link className="add-task-btn" to={`/list/${listId}/new-task`}>
+            <div>+</div>
+            Add new task
+        </Link>
     </div>;
 }
