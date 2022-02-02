@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { addTask, selectAllLists } from "./todoSlice";
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import "../../styles/AddTaskForm.css"
 
 export default function AddTaskForm() {
 
@@ -21,26 +25,41 @@ export default function AddTaskForm() {
 
     const canSave = task !== "";
     const renderedRadios = lists.map(list => {
-        return <label key={list.listId} htmlFor={list.title}>{list.title}
+        const isChecked = targetListId === list.listId;
+        return <label key={list.listId} htmlFor={list.title} className='custom-radio-label'>{list.title}
             <input
                 type="radio"
                 id={list.title}
                 name="list"
                 value={list.listId}
-                checked={targetListId === list.listId}
+                checked={isChecked}
                 onChange={(e) => setTargerListId(e.target.value)} />
+            <span className="custom-radio" style={
+                {
+                    border: `3px solid ${list.colorTheme}`,
+                    background: isChecked ? list.colorTheme : "white"
+                }
+            }></span>
         </label>
 
     })
 
-    return <section>
-        <h2>new task</h2>
-        <form>
-            <input type="text" value={task} onChange={(e) => setTask(e.target.value)} />
-            <div>
-                {renderedRadios}
-            </div>
-            <button disabled={!canSave} onClick={handleAddTask}>add task</button>
-        </form>
-    </section>;
+    return <form className='add-task-form'>
+        <Link to={`/list/${listId}`} className='link-back'><FontAwesomeIcon icon="angle-left" /></Link>
+        <header>
+            <h1>New task</h1>
+        </header>
+
+        <input type="text" placeholder='What are you planning?' value={task} onChange={(e) => setTask(e.target.value)} />
+
+        <div className='add-task-controls'>
+            {renderedRadios}
+        </div>
+
+        <button className="save-btn" disabled={!canSave} onClick={handleAddTask}>
+            <FontAwesomeIcon icon="plus" />add task
+        </button>
+    </form>
+
+
 }

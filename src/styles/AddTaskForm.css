@@ -1,0 +1,48 @@
+.add-task-controls {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow: auto;
+}
+
+.custom-radio-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    min-height: 50px;
+    padding-left: 50px;
+    text-transform: capitalize;
+}
+
+.custom-radio-label input {
+    display: none;
+}
+
+.custom-radio {
+    display: block;
+    position: absolute;
+    top: inherit;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+}
+
+.custom-radio:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.custom-radio-label input:checked~.custom-radio:after {
+    display: block;
+}
+
+.custom-radio-label .custom-radio:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: transparent;
+    border: 2px solid white;
+}
