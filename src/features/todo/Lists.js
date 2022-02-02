@@ -19,7 +19,6 @@ export default function Lists() {
     const renderedLists = lists.map(list => {
         const progress = getProgress(list.todos)
         return <li key={list.listId}>
-
             <StyledProgressBar progress={progress} colorTheme={list.colorTheme} />
 
             <Link to={`/list/${list.listId}`} className='list-link'>
@@ -39,15 +38,15 @@ export default function Lists() {
     })
 
     return <div className='to-do-container'>
-
-        <h1>To-do list</h1>
+        <header>
+            <h1>To-do list</h1>
+        </header>
 
         <ul className='lists-container'>
             {renderedLists}
+            <li className='btn-create'><Link to="/create-list"><FontAwesomeIcon icon="plus" /></Link></li>
+
         </ul>
-
-        <Link className='btn-create' to="/create-list"><FontAwesomeIcon icon="plus" /></Link>
-
     </div>;
 
 }

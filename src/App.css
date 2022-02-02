@@ -1,0 +1,43 @@
+.link-back {
+    font-size: 2rem;
+    text-decoration: none;
+    color: grey;
+}
+
+header {
+    margin: 20px 0 20px 0;
+}
+
+.save-btn {
+    padding: 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: white;
+    border: none;
+    text-transform: uppercase;
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+}
+
+.save-btn svg {
+    margin-right: 10px;
+}
+
+input[type="text"] {
+    width: 100%;
+    height: 50px;
+    font-size: 1.5rem;
+    border: none;
+    border-bottom: 1px solid rgb(189, 189, 189);
+    margin-bottom: 20px;
+    outline: none;
+}
+
+form {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 70px);
+}

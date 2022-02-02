@@ -5,5 +5,6 @@ const StyledProgressBar = styled.div`
     width: ${props => props.progress + "%"};
     background: ${props => props.colorTheme};
     border-radius: 5px ${props => props.progress === 100 ? "5px" : 0} 0 0;
+    opacity: 0.5;
 `
 export default StyledProgressBar;

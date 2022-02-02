@@ -2,19 +2,12 @@
     padding: 20px 20px 20px 5px;
 }
 
-.link-back {
+.single-list-container .link-back {
     padding-left: 15px;
 }
 
-.link-back a {
-    font-size: 2rem;
-    text-decoration: none;
-    color: grey;
-}
-
-.list-header {
+.single-list-container header {
     display: flex;
-    margin: 20px 0 20px 0;
 }
 
 .list-header div {
@@ -29,9 +22,10 @@
     margin-bottom: 10px;
 }
 
-.list-header h3 {
+.list-header h2 {
     color: grey;
     font-weight: 500;
+    font-size: 1.2rem;
 }
 
 .add-task-btn {
@@ -46,14 +40,13 @@
 .add-task-btn div {
     width: 25px;
     height: 25px;
-    background: blue;
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 700;
     border-radius: 5px;
-    margin-right: 20px;
+    margin-right: 35px;
 }
 
 .single-list {

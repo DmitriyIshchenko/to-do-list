@@ -19,15 +19,13 @@ export default function SingleList() {
     const renderedTodos = todos.map(todo => <SingleTask key={todo.taskId} todo={todo} listId={listId} />)
 
     return <div className='single-list-container'>
-        <div className='link-back'>
-            <Link to="/"><FontAwesomeIcon icon="angle-left" /></Link>
-        </div>
+        <Link to="/" className='link-back'><FontAwesomeIcon icon="angle-left" /></Link>
 
         <header className='list-header'>
             <ProgressRing radius={25} strokeWidth={3} strokeColor={list.colorTheme} icon={list.icon} progress={getProgress(todos)} />
             <div>
                 <h1>{title}</h1>
-                <h3>{todos.lenght === 1 ? `1 task` : `${todos.length} tasks`}</h3>
+                <h2>{todos.lenght === 1 ? `1 task` : `${todos.length} tasks`}</h2>
             </div>
         </header>
 
@@ -36,7 +34,7 @@ export default function SingleList() {
         </ul>
 
         <Link className="add-task-btn" to={`/list/${listId}/new-task`}>
-            <div>+</div>
+            <div style={{ background: list.colorTheme }}>+</div>
             Add new task
         </Link>
     </div>;

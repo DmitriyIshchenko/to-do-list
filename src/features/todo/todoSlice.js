@@ -17,7 +17,8 @@ const initialState = {
                 }
             ],
             listId: "1",
-            colorTheme: "#FF0000"
+            colorTheme: "#FF0000",
+            icon: "briefcase"
         },
 
         {
@@ -30,7 +31,8 @@ const initialState = {
                 }
             ],
             listId: "2",
-            colorTheme: "#00FF00"
+            colorTheme: "#00FF00",
+            icon: "home"
         }
     ]
 };
@@ -43,13 +45,14 @@ export const todoSlice = createSlice({
             reducer: (state, action) => {
                 state.lists.push(action.payload);
             },
-            prepare: (title, colorTheme) => {
+            prepare: (title, colorTheme, icon) => {
                 return {
                     payload: {
                         listId: nanoid(),
                         colorTheme,
                         title,
-                        todos: []
+                        todos: [],
+                        icon
                     }
                 }
             }

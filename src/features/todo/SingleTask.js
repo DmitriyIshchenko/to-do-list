@@ -22,7 +22,8 @@ export default function SingleTask({ todo, listId }) {
     return <li className='single-task'>
 
         <label className='single-task-label'>
-            <input type="checkbox" checked={isDone} onChange={handleToggleStatus} /><p>{task}</p>
+            <input type="checkbox" checked={isDone} onChange={handleToggleStatus} />
+            <p>{task}</p>
             <span className='checkmark'></span>
         </label>
 

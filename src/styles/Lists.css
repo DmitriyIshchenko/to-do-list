@@ -8,7 +8,7 @@
     grid-template-rows: repeat(auto-fit, minmax(150px, 1fr));
     grid-column-gap: 20px;
     grid-row-gap: 20px;
-    margin: 50px 0 20px 0;
+    margin-bottom: 20px;
 }
 
 .lists-container li {
@@ -45,6 +45,13 @@
 }
 
 .btn-create {
+    box-shadow: none !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-create a {
     width: 70px;
     line-height: 60px;
     display: block;
