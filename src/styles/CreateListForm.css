@@ -1,0 +1,64 @@
+.options {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50px 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+        "icon-dropbtn color-picker"
+        "icon-dropdown-content .";
+}
+
+.icon-dropbtn {
+    height: 50px;
+    font-size: 2rem;
+    border: none;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-area: icon-dropbtn;
+}
+
+.color-picker {
+    grid-area: color-picker;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input[type="color"] {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: transparent;
+}
+
+.icon-dropbtn span {
+    width: 10px;
+    height: 10px;
+    border: solid black;
+    border-width: 0 2px 2px 0;
+    margin-left: 10px;
+    transition: 0.3s
+}
+
+.icon-dropdown {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    height: 0px;
+    max-width: 300px;
+    overflow: hidden;
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    font-size: 2rem;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 5px;
+    text-align: center;
+    transition: 0.1s;
+    grid-area: icon-dropdown-content;
+}
+
+.show-dropdown {
+    height: 200px;
+}
