@@ -27,13 +27,12 @@ export default function SingleTask({ todo, listId }) {
             <span className='checkmark'></span>
         </label>
 
-        <div>
-            <button className="delete-btn" onClick={handleDelete}>
-                <FontAwesomeIcon icon="trash-alt" />
-            </button>
-            <Link className="edit-btn" to={`/list/${listId}/${taskId}/edit`}>
-                <FontAwesomeIcon icon="pen" />
-            </Link>
+        <div className="menu">
+            <button className="menu-btn"><FontAwesomeIcon icon="ellipsis-h" /></button>
+            <div className="menu-content">
+                <button onClick={handleDelete}>Delete</button>
+                <Link to={`/list/${listId}/${taskId}/edit`}>Edit</Link>
+            </div>
         </div>
 
     </li >;

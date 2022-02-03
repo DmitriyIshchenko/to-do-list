@@ -2,8 +2,6 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 
 import {
     faPlus,
-    faPen,
-    faTrashAlt,
     faPlusSquare,
     faAngleLeft,
     faGraduationCap,
@@ -19,13 +17,12 @@ import {
     faDog,
     faLaptop,
     faPalette,
-    faMusic
+    faMusic,
+    faEllipsisH
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(faPlus,
     faPlus,
-    faPen,
-    faTrashAlt,
     faPlusSquare,
     faAngleLeft,
     faGraduationCap,
@@ -41,4 +38,5 @@ library.add(faPlus,
     faDog,
     faLaptop,
     faPalette,
-    faMusic)
+    faMusic,
+    faEllipsisH)

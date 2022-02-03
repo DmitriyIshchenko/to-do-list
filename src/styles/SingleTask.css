@@ -4,20 +4,15 @@
     border-bottom: 1px solid grey;
 }
 
-.single-task div {
-    display: flex;
-    justify-content: space-evenly;
-    flex: 1;
-}
-
 .single-task-label {
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: relative;
-    height: 70px;
+    min-height: 70px;
+    padding: 20px;
     padding-left: 60px;
-    flex: 3;
+    flex: 2;
 }
 
 .single-task-label input {
@@ -66,11 +61,44 @@
     transform: rotate(45deg);
 }
 
-.delete-btn, .edit-btn {
-    font-size: 1.5rem;
-    text-decoration: none;
-    background: transparent;
+.menu-btn {
+    color: black;
+    font-size: 1rem;
     border: none;
-    text-align: center;
-    color: rgb(161, 161, 161);
+    cursor: pointer;
+    background: transparent;
+    padding-left: 50%;
+}
+
+.menu {
+    position: relative;
+    display: inline-block;
+    min-width: 70px;
+}
+
+.menu-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.menu-content * {
+    padding: 12px 16px;
+    display: block;
+    text-decoration: none;
+    color: black;
+    font-family: "Open Sans";
+    border: none;
+    background: transparent;
+    font-size: 1rem;
+}
+
+.menu-content *:hover {
+    background-color: #f1f1f1;
+}
+
+.menu:hover .menu-content {
+    display: block;
 }
