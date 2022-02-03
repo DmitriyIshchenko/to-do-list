@@ -3,7 +3,7 @@
     justify-items: center;
     grid-template-columns: 50% 50%;
     grid-template-rows: 50px 1fr;
-    gap: 0px 0px;
+    gap: 10px 0px;
     grid-template-areas:
         "icon-dropbtn color-picker"
         "icon-dropdown-content .";
@@ -48,17 +48,35 @@ input[type="color"] {
     align-items: center;
     justify-items: center;
     height: 0px;
-    max-width: 300px;
+    width: 100%;
     overflow: hidden;
     grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    row-gap: 10px;
     font-size: 2rem;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    box-shadow: rgba(24, 26, 27, 0.2) 0px 8px 24px;
     border-radius: 5px;
-    text-align: center;
     transition: 0.1s;
     grid-area: icon-dropdown-content;
 }
 
 .show-dropdown {
-    height: 200px;
+    height: 100%
+}
+
+@media screen and (min-width: 768px) {
+    .create-list-form {
+        height: 100vh;
+        padding-bottom: 0px;
+    }
+
+    .options {
+        width: 600px;
+        min-height: 300px;
+        margin: 0 auto 0 auto;
+    }
+
+    .icon-dropdown {
+        max-width: 300px;
+        max-height: 200px;
+    }
 }
