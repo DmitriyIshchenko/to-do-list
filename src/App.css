@@ -18,7 +18,7 @@ header {
     background: white;
     border: none;
     text-transform: uppercase;
-    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+    border-top: 1px solid rgb(189, 189, 189);
 }
 
 .save-btn svg {
@@ -40,4 +40,20 @@ form {
     display: flex;
     flex-direction: column;
     height: calc(100vh - 70px);
+}
+
+@media screen and (min-width: 768px) {
+    .App {
+        background: white;
+        max-width: 1000px;
+        margin: auto;
+    }
+
+    .save-btn {
+        position: static;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        border: none;
+        min-height: 50px;
+    }
+
 }

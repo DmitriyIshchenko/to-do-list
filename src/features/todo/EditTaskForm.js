@@ -5,6 +5,8 @@ import { selectTaskById, editTask } from "./todoSlice";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import "../../styles/EditTaskForm.css"
+
 export default function EditTaskForm() {
 
     const dispatch = useDispatch();
@@ -22,7 +24,7 @@ export default function EditTaskForm() {
 
     const canSave = editInput !== "";
 
-    return <form>
+    return <form className='edit-task-form'>
         <Link to={`/list/${listId}`} className='link-back'><FontAwesomeIcon icon="angle-left" /></Link>
         <header>
             <h1>Edit task</h1>

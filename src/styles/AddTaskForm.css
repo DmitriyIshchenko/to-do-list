@@ -46,3 +46,9 @@
     background: transparent;
     border: 2px solid white;
 }
+
+@media screen and (min-width: 768px) {
+    .add-task-controls {
+        max-height: 300px;
+    }
+}
