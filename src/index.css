@@ -11,6 +11,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+  --mainGrey: rgb(167, 160, 160);
+  --secondaryGrey: #CBCBCB;
 }
 
 code {

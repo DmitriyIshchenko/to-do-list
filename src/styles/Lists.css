@@ -39,7 +39,8 @@
 }
 
 .list-tasks-amount {
-    color: grey;
+    color: var(--mainGrey);
+    font-weight: 500;
     flex: 1;
 }
 
