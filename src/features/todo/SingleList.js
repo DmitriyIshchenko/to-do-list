@@ -25,7 +25,7 @@ export default function SingleList() {
             <ProgressRing radius={25} strokeWidth={3} strokeColor={list.colorTheme} icon={list.icon} progress={getProgress(todos)} />
             <div>
                 <h1>{title}</h1>
-                <h2>{todos.lenght === 1 ? `1 task` : `${todos.length} tasks`}</h2>
+                <h2>{todos.length === 1 ? `1 task` : `${todos.length} tasks`}</h2>
             </div>
         </header>
 
