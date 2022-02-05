@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { selectListById } from './todoSlice';
@@ -16,7 +16,16 @@ export default function SingleList() {
     const list = useSelector(state => selectListById(state, listId))
     const { title, todos } = list;
 
-    const renderedTodos = todos.map(todo => <SingleTask key={todo.taskId} todo={todo} listId={listId} />)
+    const [showMenu, setShowMenu] = useState("");
+
+    const renderedTodos = todos.map(todo => {
+        return <SingleTask
+            key={todo.taskId}
+            todo={todo}
+            listId={listId}
+            showMenu={showMenu}
+            setShowMenu={setShowMenu} />
+    })
 
     return <div className='single-list-container'>
         <Link to="/" className='link-back'><FontAwesomeIcon icon="angle-left" /></Link>

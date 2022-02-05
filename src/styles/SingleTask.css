@@ -67,7 +67,7 @@
     border: none;
     cursor: pointer;
     background: transparent;
-    padding-left: 50%;
+    width: 100%;
     outline: none;
 }
 
@@ -100,6 +100,7 @@
     background-color: #f1f1f1;
 }
 
-.menu:hover .menu-content {
+.show-menu {
     display: block;
+
 }
