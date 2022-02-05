@@ -6,12 +6,12 @@ const initialState = {
             title: "work",
             todos: [
                 {
-                    task: "work-task-0",
+                    task: "Write a report",
                     taskId: "0",
                     isDone: true
                 },
                 {
-                    task: "work-task-1",
+                    task: "Meeting at 10:30",
                     taskId: "1",
                     isDone: false
                 }
@@ -25,7 +25,7 @@ const initialState = {
             title: "home",
             todos: [
                 {
-                    task: "home-task-0",
+                    task: "Wash the dishes",
                     taskId: "0",
                     isDone: true
                 }
@@ -81,14 +81,9 @@ export const todoSlice = createSlice({
         },
         deleteTask: (state, action) => {
             const { listId, taskId } = action.payload;
-
-            let listIndex = state.lists.findIndex(list => list.listId === listId);
-            let targetIndex = state.lists[listIndex].todos.findIndex(todo => todo.taskId === taskId);
-
-            let before = state.lists[listIndex].todos.slice(0, targetIndex);
-            let after = state.lists[listIndex].todos.slice(targetIndex + 1);
-
-            state.lists[listIndex].todos = [...before, ...after];
+            let todos = selectListById(state, listId).todos;
+            let target = todos.findIndex(todo => todo.taskId === taskId);
+            todos.splice(target, 1);
         },
         editTask: (state, action) => {
             const { listId, taskId, editedTask } = action.payload;
@@ -97,8 +92,8 @@ export const todoSlice = createSlice({
         }
     }
 })
-export const selectAllLists = state => state.todo.lists;
-export const selectListById = (state, listId) => state.todo.lists.find(item => item.listId === listId);
+export const selectAllLists = state => state.lists;
+export const selectListById = (state, listId) => state.lists.find(item => item.listId === listId);
 export const selectTaskById = (state, listId, taskId) => {
     return state.lists.find(list => list.listId === listId)
         .todos.find(todo => todo.taskId === taskId);

@@ -11,7 +11,7 @@ export default function AddTaskForm() {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const lists = useSelector(state => selectAllLists(state));
+    const lists = useSelector(state => selectAllLists(state.todo));
 
     const listId = useParams().listId;
 

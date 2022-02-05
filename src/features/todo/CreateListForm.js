@@ -11,7 +11,7 @@ export default function CreateList() {
     const dispatch = useDispatch()
     const navigate = useNavigate();
 
-    const lists = useSelector(state => selectAllLists(state));
+    const lists = useSelector(state => selectAllLists(state.todo));
 
     const [title, setTitle] = useState("");
     const [colorTheme, setColorTheme] = useState("#0000FF");

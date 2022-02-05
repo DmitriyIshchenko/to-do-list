@@ -13,7 +13,7 @@ import "../../styles/SingleList.css"
 export default function SingleList() {
 
     const listId = useParams().listId;
-    const list = useSelector(state => selectListById(state, listId))
+    const list = useSelector(state => selectListById(state.todo, listId))
     const { title, todos } = list;
 
     const [showMenu, setShowMenu] = useState("");

@@ -14,7 +14,7 @@ export const getProgress = (todos) => {
 
 export default function Lists() {
 
-    const lists = useSelector(state => selectAllLists(state));
+    const lists = useSelector(state => selectAllLists(state.todo));
 
     const renderedLists = lists.map(list => {
         const progress = getProgress(list.todos)
