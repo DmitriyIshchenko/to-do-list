@@ -1,6 +1,9 @@
 * {
   margin: 0;
   padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
   box-sizing: border-box;
 }
 
@@ -17,6 +20,7 @@ body {
 :root {
   --mainGrey: rgb(167, 160, 160);
   --secondaryGrey: #CBCBCB;
+  --saveBtnGreen: #1ADB7A;
 }
 
 code {

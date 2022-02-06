@@ -26,15 +26,19 @@ export default function AddTaskForm() {
     const canSave = task !== "";
     const renderedRadios = lists.map(list => {
         const isChecked = targetListId === list.listId;
-        return <label key={list.listId} htmlFor={list.title} className='custom-radio-label'>{list.title}
+        return <label key={list.listId} htmlFor={list.title} className='add-task-form__option'>
+            <span className='add-task-form__option-title'>{list.title}</span>
+
             <input
+                className='add-task-form__option-hidden-input'
                 type="radio"
                 id={list.title}
                 name="list"
                 value={list.listId}
                 checked={isChecked}
                 onChange={(e) => setTargerListId(e.target.value)} />
-            <span className="custom-radio" style={
+
+            <span className="add-task-form__option-radio-btn" style={
                 {
                     border: `3px solid ${list.colorTheme}`,
                     background: isChecked ? list.colorTheme : "white"
@@ -44,20 +48,23 @@ export default function AddTaskForm() {
 
     })
 
-    return <form className='add-task-form'>
-        <Link to={`/list/${listId}`} className='link-back'><FontAwesomeIcon icon="angle-left" /></Link>
-        <header>
-            <h1>New task</h1>
-        </header>
+    return <form className='add-task-form create-list-form'>
+        <Link to={`/list/${listId}`} className='add-task-form__link create-list-form__link'></Link>
 
-        <input type="text" placeholder='What are you planning?' value={task} onChange={(e) => setTask(e.target.value)} />
+        <h1 className='add-task-form__title create-list-form__title'>New task</h1>
 
-        <div className='add-task-controls'>
+        <input className='add-task-form__input create-list-form__input'
+            type="text"
+            placeholder='What are you planning?'
+            value={task}
+            onChange={(e) => setTask(e.target.value)} />
+
+        <div className='add-task-form__controls create-list-form__controls'>
             {renderedRadios}
         </div>
 
-        <button className="save-btn" disabled={!canSave} onClick={handleAddTask}>
-            <FontAwesomeIcon icon="plus" />add task
+        <button className="add-task-form__save-btn create-list-form__save-btn" disabled={!canSave} onClick={handleAddTask}>
+            <FontAwesomeIcon className='add-task-form__save-btn-icon create-list-form__save-btn-icon' icon="plus" />add task
         </button>
     </form>
 

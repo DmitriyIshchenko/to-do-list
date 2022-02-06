@@ -27,24 +27,25 @@ export default function SingleList() {
             setShowMenu={setShowMenu} />
     })
 
-    return <div className='single-list-container'>
-        <Link to="/" className='link-back'><FontAwesomeIcon icon="angle-left" /></Link>
+    return <div className='single-list'>
+        <Link to="/" className='single-list__link create-list-form__link'></Link>
 
-        <header className='list-header'>
-            <ProgressRing radius={25} strokeWidth={3} strokeColor={list.colorTheme} icon={list.icon} progress={getProgress(todos)} />
-            <div>
-                <h1>{title}</h1>
-                <h2>{todos.length === 1 ? `1 task` : `${todos.length} tasks`}</h2>
+        <header className='single-list__header'>
+            <div className='single-list__progress-ring'>
+                <ProgressRing radius={25} strokeWidth={3} strokeColor={list.colorTheme} icon={list.icon} progress={getProgress(todos)} />
             </div>
+            <h1 className='single-list__title'>{title}</h1>
+            <h2 className='single-list__task-amount'>{todos.length === 1 ? `1 task` : `${todos.length} tasks`}</h2>
         </header>
 
-        <ul className='single-list'>
+        <ul className='single-list__content'>
             {renderedTodos}
+            <li className="single-list__add-task">
+                <Link className="single-list__add-task-btn" to={`/list/${listId}/new-task`}>
+                    <div className='single-list__add-task-btn-icon' style={{ background: list.colorTheme }}></div>
+                    <span className='single-list__add-task-btn-text'>Add new task</span>
+                </Link>
+            </li>
         </ul>
-
-        <Link className="add-task-btn" to={`/list/${listId}/new-task`}>
-            <div style={{ background: list.colorTheme }}>+</div>
-            Add new task
-        </Link>
     </div>;
 }

@@ -9,7 +9,6 @@ export default function ProgressRing(props) {
     const strokeDashoffset = circumference - progress / 100 * circumference;
 
     return <svg
-        className='progress-ring'
         height={radius * 2}
         width={radius * 2}>
 

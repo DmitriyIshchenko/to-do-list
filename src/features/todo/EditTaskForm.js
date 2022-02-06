@@ -24,12 +24,12 @@ export default function EditTaskForm() {
 
     const canSave = editInput !== "";
 
-    return <form className='edit-task-form'>
-        <Link to={`/list/${listId}`} className='link-back'><FontAwesomeIcon icon="angle-left" /></Link>
-        <header>
-            <h1>Edit task</h1>
-        </header>
-        <input type="text" value={editInput} onChange={e => setEditInput(e.target.value)} />
-        <button className="save-btn" disabled={!canSave} onClick={handleEdit}>save</button>
+    return <form className='edit-task-form create-list-form'>
+        <Link to={`/list/${listId}`} className='edit-task-form__link create-list-form__link'></Link>
+        <h1 className='edit-task-form__title create-list-form__title' >Edit task</h1>
+
+        <input className='edit-task-form__input create-list-form__input' type="text" value={editInput} onChange={e => setEditInput(e.target.value)} />
+
+        <button className="edit-task-form__save-btn create-list-form__save-btn" disabled={!canSave} onClick={handleEdit}>save</button>
     </form>
 }

@@ -44,36 +44,49 @@ export default function CreateList() {
     ]
 
     const iconDropdownContent = icons.map((icon, index) => {
-        return <FontAwesomeIcon key={index} onClick={() => setIcon(icon)} icon={icon} style={{ color: colorTheme }} />
+        return <div key={icon} className='create-list-form__icon-dropdown-item'><FontAwesomeIcon key={index} onClick={() => setIcon(icon)} icon={icon} style={{ color: colorTheme }} /></div>
     })
 
     return <form className='create-list-form'>
-        <Link to="/" className='link-back'><FontAwesomeIcon icon="angle-left" /></Link>
+        <Link to="/" className='create-list-form__link'></Link>
 
-        <header>
-            <h1>Create new list</h1>
-        </header>
+        <h1 className='create-list-form__title'>New list</h1>
 
-        <input type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} />
+        <input className='create-list-form__input'
+            type="text"
+            placeholder="Title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)} />
 
-        <div className='options'>
+        <div className='create-list-form__controls'>
+            <h2 className='create-list-form__option-title'>Color</h2>
+            <div className='create-list-form__color-picker'>
+                <input
+                    className='create-list-form__color-picker-input'
+                    type="color"
+                    value={colorTheme}
+                    onChange={(e) => setColorTheme(e.target.value)} />
+            </div>
 
-            <button type="button" className="icon-dropbtn" onClick={() => setShowDropdown(!showDropdown)}>
-                <FontAwesomeIcon icon={icon} style={{ color: colorTheme }} />
-                <span style={{ transform: `rotate(${showDropdown ? 45 : -45}deg)` }}></span>
+            <h2 className='create-list-form__option-title'>Icon</h2>
+            <button type="button" className="create-list-form__icon-dropbtn" onClick={() => setShowDropdown(!showDropdown)}>
+                <div className='create-list-form__selected-icon'>
+                    <FontAwesomeIcon
+                        icon={icon}
+                        style={{ color: colorTheme }} />
+                </div>
+                <span className="create-list-form__icon-dropbtn-span"
+                    style={{ transform: `rotate(${showDropdown ? 45 : -45}deg)` }}></span>
             </button>
-            <div className={showDropdown ? "icon-dropdown show-dropdown" : "icon-dropdown"}>
+
+            <div className={showDropdown ? "create-list-form__icon-dropdown create-list-form__icon-dropdown-show"
+                : "create-list-form__icon-dropdown"}>
                 {iconDropdownContent}
             </div>
-
-            <div className='color-picker'>
-                <input type="color" value={colorTheme} onChange={(e) => setColorTheme(e.target.value)} />
-            </div>
-
         </div>
 
-        <button className='save-btn' type="button" onClick={handleCreate} disabled={!canSave}>
-            <FontAwesomeIcon icon="plus" /> add list
+        <button className='create-list-form__save-btn' type="button" onClick={handleCreate} disabled={!canSave}>
+            <FontAwesomeIcon className='create-list-form__save-btn-icon' icon="plus" /> add list
         </button>
 
     </form>;

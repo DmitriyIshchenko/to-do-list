@@ -18,34 +18,33 @@ export default function Lists() {
 
     const renderedLists = lists.map(list => {
         const progress = getProgress(list.todos)
-        return <li key={list.listId}>
+        return <li className="todo__list-item" key={list.listId}>
             <StyledProgressBar progress={progress} colorTheme={list.colorTheme} />
 
-            <Link to={`/list/${list.listId}`} className='list-link'>
+            <Link to={`/list/${list.listId}`} className='todo__list-item-link'>
 
-                <div className='list-icon'>
+                <div className='todo__list-item-icon'>
                     <FontAwesomeIcon icon={list.icon} style={{ color: list.colorTheme, opacity: 0.7 }} />
                 </div>
 
-                <p className='list-title'>{list.title}</p>
+                <h2 className='todo__list-item-title'>{list.title}</h2>
 
-                <p className='list-tasks-amount'>
+                <h3 className='todo__list-item-task-amount'>
                     {list.todos.length === 1 ? "1 task" : `${list.todos.length} tasks`}
-                </p>
+                </h3>
 
             </Link>
         </li>
     })
 
-    return <div className='to-do-container'>
-        <header>
-            <h1>To-do list</h1>
-        </header>
+    return <div className='todo'>
+        <h1 className='todo__title'>To-do list</h1>
 
-        <ul className='lists-container'>
+        <ul className='todo__list'>
             {renderedLists}
-            <li className='btn-create'><Link to="/create-list"><FontAwesomeIcon icon="plus" /></Link></li>
-
+            <li className='todo__list-item todo__list-item-create'>
+                <Link className="todo__create-button" to="/create-list"><FontAwesomeIcon icon="plus" /></Link>
+            </li>
         </ul>
     </div>;
 

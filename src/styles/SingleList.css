@@ -1,58 +1,94 @@
-.single-list-container {
-    padding: 20px 20px 20px 5px;
-}
-
-.single-list-container .link-back {
-    padding-left: 15px;
-}
-
-.single-list-container header {
-    display: flex;
-}
-
-.list-header div {
-    margin-left: 20px;
-}
-
-.list-header h1 {
-    text-transform: capitalize;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.list-header h2 {
-    color: var(--mainGrey);
-    font-weight: 500;
-    font-size: 1.2rem;
-}
-
-.add-task-btn {
-    display: flex;
-    align-items: center;
-    height: 70px;
-    text-decoration: none;
-    color: var(--secondaryGrey);
-    padding-left: 15px;
-}
-
-.add-task-btn div {
-    width: 25px;
-    height: 25px;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    border-radius: 5px;
-    margin-right: 35px;
-}
-
 .single-list {
-    padding-left: 15px;
+    padding: 20px 10px 10px 10px;
 }
 
-.single-list li {
+.single-list__link {
+    margin-left: 10px;
+}
+
+
+.single-list__header {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 50px 1fr;
+    gap: 0 20px;
+    grid-template-areas:
+        "single-list__progress-ring single-list__title"
+        ". single-list__task-amount";
+
+    padding-top: 10px;
+}
+
+.single-list__progress-ring {
+    grid-area: single-list__progress-ring;
+}
+
+.single-list__title {
+    grid-area: single-list__title;
+
+    max-width: calc(100vw - 100px);
+
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: capitalize;
+
+    word-wrap: break-word;
+}
+
+.single-list__task-amount {
+    grid-area: single-list__task-amount;
+    padding-top: 10px;
+
+    color: var(--mainGrey)
+}
+
+.single-list__content {
+    padding: 20px 15px 20px 15px;
+}
+
+.single-list__add-task {
     list-style: none;
+}
+
+.single-list__add-task-btn {
+    display: flex;
+    align-items: center;
+
+    padding: 20px 0 20px 0;
+
+    text-decoration: none;
+    color: var(--mainGrey);
+}
+
+.single-list__add-task-btn-icon {
+    position: relative;
+    display: block;
+
+    width: 24px;
+    height: 24px;
+    border-radius: 5px;
+}
+
+.single-list__add-task-btn-icon::before {
+    content: "";
+    position: absolute;
+    left: 11px;
+    top: 8px;
+
+    height: 6px;
+    border: 1px solid white;
+}
+
+.single-list__add-task-btn-icon::after {
+    content: "";
+    position: absolute;
+    top: 11px;
+    left: 8px;
+
+    width: 6px;
+    border: 1px solid white;
+}
+
+.single-list__add-task-btn-text {
+    padding-left: 30px;
 }
