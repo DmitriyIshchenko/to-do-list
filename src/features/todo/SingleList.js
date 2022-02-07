@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import SingleTask from './SingleTask';
 import ProgressRing from './ProgressRing';
 import { getProgress } from './Lists';
+import Error from './Error'
 
 import "../../styles/SingleList.css"
 
@@ -51,12 +52,14 @@ export default function SingleList() {
 
     const listId = useParams().listId;
     const list = useSelector(state => selectListById(state.todo, listId))
-    const { title, todos } = list;
 
     const [showMenu, setShowMenu] = useState("");
-    const today = new Date();
-    const tomorrow = new Date(today);
-    tomorrow.setDate(today.getDate() + 1);
+
+    if (!list) {
+        return <Error />
+    }
+
+    const { title, todos } = list;
 
     const sortedTodos = getSortedTodos(todos);
 
@@ -90,7 +93,7 @@ export default function SingleList() {
 
         <section className='single-list__content'>
             {renderedTodos}
-            <Link className="single-list__add-task-btn" to={`/list/${listId}/new-task`}>
+            <Link className="single-list__add-task-btn" to={`/${listId}/new-task`}>
                 <div className='single-list__add-task-btn-icon' style={{ background: list.colorTheme }}></div>
                 <span className='single-list__add-task-btn-text'>Add new task</span>
             </Link>

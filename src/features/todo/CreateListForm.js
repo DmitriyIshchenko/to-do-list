@@ -22,7 +22,7 @@ export default function CreateList() {
 
     const handleCreate = () => {
         const response = dispatch(createList(title, colorTheme, icon));
-        navigate(`/list/${response.payload.listId}`);
+        navigate(`/${response.payload.listId}`);
         setShowDropdown(false);
     }
 

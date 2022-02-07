@@ -21,7 +21,7 @@ export default function Lists() {
         return <li className="todo__list-item" key={list.listId}>
             <StyledProgressBar progress={progress} colorTheme={list.colorTheme} />
 
-            <Link to={`/list/${list.listId}`} className='todo__list-item-link'>
+            <Link to={`/${list.listId}`} className='todo__list-item-link'>
 
                 <div className='todo__list-item-icon'>
                     <FontAwesomeIcon icon={list.icon} style={{ color: list.colorTheme, opacity: 0.7 }} />

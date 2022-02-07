@@ -25,7 +25,7 @@ export default function AddTaskForm() {
 
     const handleAddTask = () => {
         dispatch(addTask(targetListId, task, date));
-        navigate(`/list/${targetListId}`)
+        navigate(`/${targetListId}`)
     }
 
     const canSave = task !== "";
@@ -54,7 +54,7 @@ export default function AddTaskForm() {
     })
 
     return <form className='add-task-form create-list-form'>
-        <Link to={`/list/${listId}`} className='add-task-form__link create-list-form__link'></Link>
+        <Link to={`/${listId}`} className='add-task-form__link create-list-form__link'></Link>
 
         <h1 className='add-task-form__title create-list-form__title'>New task</h1>
 

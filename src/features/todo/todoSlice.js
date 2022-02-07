@@ -100,8 +100,10 @@ export const todoSlice = createSlice({
 export const selectAllLists = state => state.lists;
 export const selectListById = (state, listId) => state.lists.find(item => item.listId === listId);
 export const selectTaskById = (state, listId, taskId) => {
-    return state.lists.find(list => list.listId === listId)
-        .todos.find(todo => todo.taskId === taskId);
+    // return state.lists.find(list => list.listId === listId)
+    //     .todos.find(todo => todo.taskId === taskId);
+    const list = selectListById(state, listId);
+    if (list) return list.todos.find(todo => todo.taskId === taskId);
 }
 
 export const { createList, addTask, toggleTaskStatus, deleteTask, editTask } = todoSlice.actions;

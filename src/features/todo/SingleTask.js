@@ -60,7 +60,7 @@ export default function SingleTask({ todo, listId, showMenu, setShowMenu }) {
             <div className={showMenu === taskId ? "single-list__task-menu-content single-list__task-menu-content-show"
                 : "single-list__task-menu-content"}>
                 <button className='single-list__task-delete' onClick={handleDelete}>Delete</button>
-                <Link className='single-list__task-edit' to={`/list/${listId}/${taskId}/edit`}>Edit</Link>
+                <Link className='single-list__task-edit' to={`/${listId}/${taskId}/edit`}>Edit</Link>
             </div>
         </div>
 
