@@ -5,11 +5,28 @@ import { Link } from "react-router-dom";
 
 import "../../styles/SingleTask.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import styled from 'styled-components';
+
+
+const StyledTask = styled.span`
+    max-width: 100%;
+    word-wrap: break-word;
+    display: inline-block;
+    text-decoration: ${({ isDone }) => isDone ? "line-through" : "none"};
+    color: ${({ isDone, date }) => isDone ? "var(--secondaryGrey)" : isExpired(date) ? "red" : "black"}
+`
+
+const isExpired = dateStr => {
+    let date = new Date(dateStr).setHours(0, 0, 0, 0);
+    let today = new Date().setHours(0, 0, 0, 0);
+    return today - date > 0;
+
+}
 
 export default function SingleTask({ todo, listId, showMenu, setShowMenu }) {
 
     const dispatch = useDispatch();
-    const { taskId, task, isDone } = todo;
+    const { taskId, task, isDone, date } = todo;
 
     const handleToggleStatus = () => {
         dispatch(toggleTaskStatus({ taskId, isDone, listId }))
@@ -26,11 +43,12 @@ export default function SingleTask({ todo, listId, showMenu, setShowMenu }) {
             setShowMenu("")
         }
     }
+
     return <li className='single-list__task'>
 
         <label className='single-list__task-label'>
             <input className="single-list__task-hidden-input" type="checkbox" checked={isDone} onChange={handleToggleStatus} />
-            <span className='single-list__task-text'>{task}</span>
+            <StyledTask isDone={isDone} date={date}>{task}</StyledTask>
             <span className='single-list__task-checkmark'></span>
         </label>
 

@@ -45,11 +45,6 @@
     display: none;
 }
 
-.single-list__task-hidden-input:checked~.single-list__task-text {
-    color: var(--secondaryGrey);
-    text-decoration: line-through;
-}
-
 .single-list__task-hidden-input:checked~.single-list__task-checkmark:after {
     display: block;
 }
@@ -66,12 +61,6 @@
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
-}
-
-.single-list__task-text {
-    max-width: 100%;
-    word-wrap: break-word;
-    display: inline-block;
 }
 
 .single-list__task-menu {
