@@ -11,7 +11,7 @@
 
     display: block;
     width: 30px;
-    height: 30px;
+    min-height: 30px;
 
     font-size: 2rem;
     color: var(--mainGrey);
@@ -139,10 +139,6 @@
     text-transform: uppercase;
 }
 
-.create-list-form__save-btn:disabled {
-    opacity: 0.5;
-}
-
 .create-list-form__save-btn-icon {
     margin-right: 15px;
 }
@@ -163,4 +159,9 @@
 
         color: white;
     }
+
+    .create-list-form__save-btn:disabled {
+        opacity: 0.5;
+    }
+
 }
