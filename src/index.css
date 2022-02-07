@@ -18,8 +18,8 @@ body {
 }
 
 :root {
-  --mainGrey: rgb(167, 160, 160);
-  --secondaryGrey: #CBCBCB;
+  --mainGrey: rgb(136, 131, 131);
+  --secondaryGrey: #bebebe;
   --saveBtnGreen: #1ADB7A;
 }
 
