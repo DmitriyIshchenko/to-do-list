@@ -7,6 +7,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import "../../styles/AddTaskForm.css"
 
+const formatDate = (date) => {
+    return date.toISOString().substring(0, 10);
+}
+
 export default function AddTaskForm() {
 
     const dispatch = useDispatch();
@@ -16,10 +20,11 @@ export default function AddTaskForm() {
     const listId = useParams().listId;
 
     const [task, setTask] = useState("");
+    const [date, setDate] = useState(formatDate(new Date()));
     const [targetListId, setTargerListId] = useState(listId);
 
     const handleAddTask = () => {
-        dispatch(addTask(targetListId, task));
+        dispatch(addTask(targetListId, task, date));
         navigate(`/list/${targetListId}`)
     }
 
@@ -53,11 +58,21 @@ export default function AddTaskForm() {
 
         <h1 className='add-task-form__title create-list-form__title'>New task</h1>
 
+        <label className="add-task-form__task-label create-list-form__option-title" htmlFor='task'>Task</label>
         <input className='add-task-form__input create-list-form__input'
             type="text"
+            id="task"
             placeholder='What are you planning?'
             value={task}
             onChange={(e) => setTask(e.target.value)} />
+
+        <label className="add-task-form__date-label create-list-form__option-title" htmlFor='date'>Date</label>
+        <input
+            className='add-task-form__date-input'
+            id="date"
+            type="date"
+            value={date}
+            onChange={e => setDate(e.target.value)} />
 
         <div className='add-task-form__controls create-list-form__controls'>
             {renderedRadios}

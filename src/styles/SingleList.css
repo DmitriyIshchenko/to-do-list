@@ -39,6 +39,7 @@
     grid-area: single-list__task-amount;
     padding-top: 10px;
 
+    font-size: 1.1rem;
     color: var(--mainGrey)
 }
 
@@ -46,8 +47,11 @@
     padding: 20px 15px 20px 15px;
 }
 
-.single-list__add-task {
-    list-style: none;
+.single-list__content-subtitle {
+    padding: 30px 0 30px 0;
+
+    font-size: 1.1rem;
+    color: var(--mainGrey);
 }
 
 .single-list__add-task-btn {

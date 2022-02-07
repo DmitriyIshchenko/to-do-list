@@ -8,12 +8,14 @@ const initialState = {
                 {
                     task: "Write a report",
                     taskId: "0",
-                    isDone: true
+                    isDone: false,
+                    date: "2022-02-06"
                 },
                 {
                     task: "Meeting at 10:30",
                     taskId: "1",
-                    isDone: false
+                    isDone: true,
+                    date: "2022-02-07"
                 }
             ],
             listId: "1",
@@ -27,7 +29,8 @@ const initialState = {
                 {
                     task: "Wash the dishes",
                     taskId: "0",
-                    isDone: true
+                    isDone: true,
+                    date: "2022-02-22"
                 }
             ],
             listId: "2",
@@ -63,13 +66,14 @@ export const todoSlice = createSlice({
                 const targetList = state.lists.find(list => list.listId === listId);
                 targetList.todos.push(data);
             },
-            prepare: (listId, task) => {
+            prepare: (listId, task, date) => {
                 return {
                     payload: {
                         listId,
                         task,
                         taskId: nanoid(),
-                        isDone: false
+                        isDone: false,
+                        date
                     }
                 }
             }
@@ -86,9 +90,10 @@ export const todoSlice = createSlice({
             todos.splice(target, 1);
         },
         editTask: (state, action) => {
-            const { listId, taskId, editedTask } = action.payload;
+            const { listId, taskId, editedTask, editedDate } = action.payload;
             const target = selectTaskById(state, listId, taskId);
             target.task = editedTask;
+            target.date = editedDate;
         }
     }
 })

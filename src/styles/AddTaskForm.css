@@ -1,3 +1,15 @@
+.add-task-form__date-label {
+    padding-top: 20px;
+}
+
+.add-task-form__date-input {
+    width: 150px;
+    height: 50px;
+
+    font-family: "Open Sans";
+    outline: none;
+}
+
 .add-task-form__controls {
     display: flex;
     flex-direction: column;
