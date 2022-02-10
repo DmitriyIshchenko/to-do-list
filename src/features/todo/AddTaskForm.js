@@ -5,12 +5,8 @@ import { addTask } from "./todoSlice";
 import { selectAllLists } from './selectors';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import { formatDate } from "./utils"
 import "../../styles/AddTaskForm.css"
-
-const formatDate = (date) => {
-  return date.toISOString().substring(0, 10);
-}
 
 export default function AddTaskForm() {
 

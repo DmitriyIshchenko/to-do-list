@@ -5,34 +5,10 @@ import { selectListById, selectSortedTodos } from './selectors';
 import { Link } from "react-router-dom";
 import SingleTask from './SingleTask';
 import ProgressRing from './ProgressRing';
-import { getProgress } from './Lists';
 import Error from './Error'
+import { getProgress, formatTitle } from './utils';
 
 import "../../styles/SingleList.css"
-
-const formatTitle = dateStr => {
-  let date = new Date(dateStr).setHours(0, 0, 0, 0);
-  let today = new Date();
-  today.setHours(0, 0, 0, 0);
-
-  let tomorrow = new Date(today);
-  tomorrow.setDate(today.getDate() + 1);
-
-  today = today.getTime();
-  tomorrow = tomorrow.getTime();
-
-  if (date === today) {
-    return "Today"
-  } else if (date === tomorrow) {
-    return "Tomorrow";
-  } else if (date - today <= 24 * 60 * 60 * 1000 * 4 && date - today > 0) {
-    date = new Date(date);
-    return date.toLocaleDateString("en-US", { weekday: "long" });
-  } else {
-    date = new Date(date);
-    return date.toLocaleDateString("en-US", { month: "long", day: "numeric" });
-  }
-}
 
 export default function SingleList() {
 

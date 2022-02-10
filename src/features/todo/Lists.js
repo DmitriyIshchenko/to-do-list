@@ -4,13 +4,9 @@ import { Link } from "react-router-dom";
 import { selectAllLists } from './selectors';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import StyledProgressBar from './StyledProgressBar';
+import { getProgress } from "./utils"
 
 import "../../styles/Lists.css"
-
-export const getProgress = (todos) => {
-  const doneAmount = todos.filter(todo => todo.isDone).length;
-  return doneAmount / todos.length * 100 || 0;
-}
 
 export default function Lists() {
 
