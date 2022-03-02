@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import "../../styles/SingleTask.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
-import { isExpired } from './utils';
+import { isExpired } from '../../common/utils';
 
 export default function SingleTask({ todo, listId, showMenu, setShowMenu }) {
 

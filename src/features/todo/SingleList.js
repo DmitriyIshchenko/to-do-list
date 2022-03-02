@@ -4,9 +4,9 @@ import { useParams } from 'react-router-dom';
 import { selectListById, selectSortedTodos } from './selectors';
 import { Link } from "react-router-dom";
 import SingleTask from './SingleTask';
-import ProgressRing from './ProgressRing';
+import ProgressRing from '../../common/ProgressRing';
 import Error from './Error'
-import { getProgress, formatTitle } from './utils';
+import { getProgress, formatTitle } from '../../common/utils';
 
 import "../../styles/SingleList.css"
 

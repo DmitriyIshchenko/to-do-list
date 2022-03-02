@@ -5,7 +5,7 @@ import { addTask } from "./todoSlice";
 import { selectAllLists } from './selectors';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { formatDate } from "./utils"
+import { formatDate } from "../../common/utils"
 import "../../styles/AddTaskForm.css"
 
 export default function AddTaskForm() {

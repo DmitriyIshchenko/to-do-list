@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
 import { selectAllLists } from './selectors';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import StyledProgressBar from './StyledProgressBar';
-import { getProgress } from "./utils"
+import StyledProgressBar from '../../common/StyledProgressBar';
+import { getProgress } from "../../common/utils"
 
 import "../../styles/Lists.css"
 
